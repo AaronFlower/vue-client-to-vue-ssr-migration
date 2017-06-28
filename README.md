@@ -7,13 +7,12 @@
 
 
 
-至此我们的客户端已经调整完毕，那么我开到哪调整服务器端的啦。服务器端用 vue-server-render 渲染，首先安装 vue-server-renter。 
+至此我们的客户端已经调整完毕，那么我开到哪调整服务器端的啦。服务器端用 vue-server-render 渲染，首先安装 vue-server-renter。
 
-- add server entry  // 简单渲染不需要 route 和 store . 
+- add server entry  // 简单渲染不需要 route 和 store .
 
 创建一个 webpack 的 vue ssr 的配置用来生成  vue-ssr-server-bundle.json.
 
 然后创建的服务器通过读取 vue-ssr-server-bundle.json 来启动服务器，通过 createBundleRenderer 创建的 renderer 来渲染。
 
-
-
+下面我们需要处理怎么进行 Hot-reload ， vue-ssr-server-bundle 动态生成在内存，我们动态读取。
