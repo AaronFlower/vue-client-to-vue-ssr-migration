@@ -15,6 +15,7 @@ module.exports = function setupServer (app, cb) {
         poll: 1000
       },
       (err, stats) => {
+        console.log('serverCompiler watched ....')
         if (err) {
           throw err
           console.log(err)

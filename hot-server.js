@@ -4,13 +4,13 @@ const { createBundleRenderer } = require('vue-server-renderer')
 
 const template = fs.readFileSync('./src/index.template.html', 'utf-8')
 let setupServer = require('./build/setup-server.js')
-let readyPromise = setupServer()
 
 const app = express()
 app.get('*', (req, res) => {
   let context = {
     title: 'vue-webpack-ssr'
   }
+  let readyPromise = setupServer()
   readyPromise.then(serverBundle => {
     createBundleRenderer(serverBundle, {
       runInNewContext: false,
